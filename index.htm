@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>Online Auction System -- Main</title>
+<script language="javascript" type="text/javascript">
+// <!CDATA[
+
+function Button1_onclick() {
+if(document.myForm.email.value == "")
+    alert("email Can Not Be Null!")
+else if(document.myForm.Password1.value == "")
+    alert("Your Password must not be null!!!")
+else
+    javascript:myForm.submit()
+}
+
+function Button2_onclick() {
+    window.open("RegisterPage.htm","_self");
+
+}
+
+// ]]>
+</script>
+</head>
+<body style="font-size: 12pt; text-align: center" bgcolor="#ffffff">
+    <span style="font-family: Arial"><strong><span style="font-size: 14pt">Online Auction System</span><br />
+        <br />
+        
+        <br />
+        
+        <form name="myForm" action="login.jsp" method="post">
+
+        <span style="font-size: 10pt">Email :</span>
+        <input id="Text1" name="email" type="text" />
+        &nbsp; <span style="font-size: 10pt">Password:</span>
+        <input id="Password1" name="userpasswd" type="password" />
+        &nbsp;
+        <input id="Button1" style="width: 70px" type="button" value="Log In" onclick="return Button1_onclick()" />
+        &nbsp;
+        <input id="Button2" style="width: 70px" type="button" value="Register" onclick="return Button2_onclick()" /><br />
+        <br />
+        </form>
+        
+        <span style="font-size: 9pt">
+            <br />
+            DSY<br />
+        </span></strong></span><span
+                style="font-size: 9pt"> </span>
+
+</body>
+</html>

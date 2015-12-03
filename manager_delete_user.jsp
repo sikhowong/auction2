@@ -48,36 +48,23 @@ if(session.getValue("login")==null ){
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head>
-    <title>Manager Level Transaction - Comprehensive List of Items</title>
-     <%@include file="include/head_include.html"%>
+    <title>Manager Delete User</title>
+    <%@include file="include/head_include.html"%>
+
 </head>
 <body style="text-align: center" bgcolor="#ffffff">
-<%@include file="include/nav.html"%>
-<h1>Comprehensive List of Items</h1>
-<a href="EmployeeInformation.jsp">Employee Home Page</a> 
+<%@include file="include/nav_cr.html"%>
+    <h1>Manager Delete User</h1>
+    <a href="EmployeeInformation.jsp">Manager Home Page</a> 
 
-<br/>
-<br/>
+    <br />
+    <br />
     <span style="font-size: 14pt; font-family: Arial"><strong>Hello, Manager. Your Email is
-        <%=session.getValue("login")%>. Your ID is <%=session.getValue("employeeID")%> .<br />
+        <%=session.getValue("login")%>. Your ID is <%=session.getValue("employeeID")%>. Here is Customer Information.<br />
         <br />
     </span>
-
-   
-       
-         <div class="table-responsive">
-           <table class="table table-striped">
-            <tr>
-              <td>Item ID</td>
-              <td>Item Name</td>
-              <td>Description</td>
-              <td>Type</td>
-              <td>Number of Copies</td>
-              
-            </tr>
-
         <%
-          
+  
           
           
           try{
@@ -92,32 +79,49 @@ if(session.getValue("login")==null ){
       
             java.sql.Statement stmt1=conn.createStatement();
         
-            java.sql.ResultSet rs = stmt1.executeQuery("SELECT * FROM item");
-        
+            java.sql.ResultSet rs = stmt1.executeQuery("select p.SSN, p.firstName, p.lastName, c.Rating, c.creditcardnum  from customer c , person p where p.SSN = c.CustomerID ");
+        %>
+            <a href="CustomerInfo_edit.jsp?type=add">Add a Customer</a>
+
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <tr>
+              <td>SSN</td>
+              <td>First Name</td>
+              <td>Last Name</td>
+              <td>Rating</td>
+              <td>creditcardnum</td>
+              <td>Edit</td>
+              <td>Delete</td>
+            </tr>
+
+
+        <%
 
             while(rs.next()){
         %>
               <tr>
-                <td><%=rs.getString("ItemID")%></td>
-                <td><%=rs.getString("Name")%></td>
-                <td><%=rs.getString("Description")%></td>
-                <td><%=rs.getString("Type")%></td>
-                <td><%=rs.getString("NumCopies")%></td>
-                
+                <td><%=rs.getInt("SSN")%></td>
+                <td><%=rs.getString("firstName")%></td>
+                <td><%=rs.getString("lastName")%></td>
+                <td><%=rs.getInt("Rating")%></td>
+                <td><%=rs.getBigDecimal("creditcardnum")%></td>
+                <td><a href="CustomerInfo_edit.jsp?type=edit&id=<%=rs.getInt("SSN")%>">edit</a></td>
+                <td><a href="CustomerInfo_edit.jsp?type=delete&id=<%=rs.getInt("SSN")%>">delete</a></td>
               </tr>
 
          
         <%
 
-            }// while
+       
 
+            }
         %>
 
 
         </table>
 
         <%
-            
           }catch(Exception e){
             e.printStackTrace();
             out.print(e.toString());
@@ -126,14 +130,18 @@ if(session.getValue("login")==null ){
             try{conn.close();}catch(Exception ee){};
           }
 
-        
+
 
         %>
       
+
+  					
+                    
                    
                     <br />
                     <br />
                     <br />
+                   
                     <input id="Button1" type="button" value="Logout" onclick="window.open('index.htm','_self');" /><br />
                     <span style="font-size: 8pt">
                         <br />

@@ -56,11 +56,9 @@
 				java.sql.Statement stmt1 = conn.createStatement();
 
 				java.sql.ResultSet rs = stmt1
-						.executeQuery("SELECT DISTINCT c.CustomerID, a.AuctionID FROM bid b, customer c, osales s, auction a WHERE (b.CustomerID ='"
+						.executeQuery("select CustomerID , AuctionID from bid where CustomerID = "
 								+ session.getValue("customerID")
-								+ "'AND a.AuctionID = b.AuctionID) OR (s.SellerID'"
-								+ session.getValue("customerID")
-								+ "'AND a.AuctionID = s.AuctionID)");
+								+ " GROUP BY AuctionID");
 
 				while (rs.next()) {
 		%>

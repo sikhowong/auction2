@@ -82,7 +82,7 @@ if(session.getValue("login")==null ){
         %>
             <a href="EmployeeInfo_crud.jsp?type=add">Add an Employee</a>
 
-            <div class="table-responsive">
+          <div class="table-responsive">
            <table class="table table-striped">
             <tr>
               <td>SSN</td>

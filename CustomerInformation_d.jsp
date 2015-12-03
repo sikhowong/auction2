@@ -1,4 +1,4 @@
-
+  
 <%
 if (request.getProtocol().compareTo("HTTP/1.0")==0)
     response.setHeader("Pragma","no-cache");
@@ -15,23 +15,21 @@ if(session.getValue("login")==null ){
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head>
     <title>Customer Information -- Online Auction System</title>
-	<%@include file="include/head_include.html"%>
+
 </head>
 <body style="text-align: center" bgcolor="#ffffff">
-<%@include file="include/nav_customer.html"%>
     <span style="font-size: 14pt; font-family: Arial"><strong>Hello, Your Email is
         <%=session.getValue("login")%>. You ID is <%=session.getValue("customerID")%> Here is Your Customer Information.<br />
         <br />
 <a href="Create_Auction.jsp" target="_blank">Sell Item</a><br />
-Search Item to Purchase By: <a href="Buy_Item.jsp?by=Name" target="_blank">Item name </a><a href="Buy_Item.jsp?by=Type" target="_blank">Item Type </a><a href="Buy_Item.jsp?by=ItemID" target="_blank">Item ID</a><br/>
+Search Item to Purchase By: <a href="Buy_Item.jsp?by=Name" target="_blank">Item name</a><a href="Buy_Item.jsp?by=Type" target="_blank">Item Type</a><a href="Buy_Item.jsp?by=ItemID" target="_blank">Item ID</a><br/>
 <a href="Bid_History.jsp" target="_blank">Bid History for Each Auction</a><br />
 <a href="History_All_Auction.jsp" target="_blank">History of All Current and Past Auction</a><br />
-<a href="Item_Sold_By_Seller.jsp" target="_blank">Items Sold By Given Seller</a><br />
+<a href="Item_sold_By_Seller.jsp" target="_blank">Items Sold By Given Seller</a><br />
 <a href="Item_Available_Type.jsp" target="_blank">Items Available of A Particular Type</a><br />
 <a href="Item_By_Keyword.jsp" target="_blank">Items Available with Particular Keyword</a><br />
 <a href="Best_Seller_list.jsp" target="_blank">Best-Seller List</a><br />
 <a href="Item_Suggestion_List.jsp" target="_blank">Item Suggestion List</a><br />
 
-<%@include file="include/end_js_include.html"%>
 </body>
 </html>

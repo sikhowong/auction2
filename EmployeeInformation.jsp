@@ -87,7 +87,7 @@ if(session.getValue("login")==null ){
                     System.out.println("Manager");
         %>
         
-       
+              
                 <a href="Manager_crud.jsp" target="_blank">Manger CRUD</a><br />
                 <a href="manager_sales_report.jsp" target="_blank">Obtain A sales report for a particular month</a><br />
                 <a href="manager_comprehensive_item.jsp" target="_blank">Comprehensive List of Items</a><br />
@@ -101,16 +101,19 @@ if(session.getValue("login")==null ){
                 <a href="manager_customer_most_revenue.jsp" target="_blank">Customer generated most total revenue</a><br />
 
                 <a href="manager_bestsellers_items.jsp" target="_blank">Best Sellers List of items</a><br />
+                <a href="manager_delete_user.jsp" target="_blank">Delete Users</a><br />
         <%                
                // response.sendRedirect("Manager_crud.jsp");
               }
                 else{
                    System.out.println("Customer Representative");
          %>
+                 
                   <a href="CustomerR_edit.jsp" target="_blank">Customer-Representative Edit</a><br />
                   <a href="customer_mailing.jsp" target="_blank">Customer mailing lists</a><br />
                   <a href="listSuggestion.jsp" target="_blank">Item suggestions</a><br />
                   <a href="view_employee.jsp" target="_blank">View Employee Information</a><br />
+                  <a href="view_employee_sales.jsp" target="_blank">View all sales</a><br />
          <%     
                 }
           %>     

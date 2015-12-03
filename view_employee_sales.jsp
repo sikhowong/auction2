@@ -27,12 +27,12 @@ if(session.getValue("login")==null ){
             java.sql.Statement stmt1=conn.createStatement();
         
             java.sql.ResultSet rs = stmt1.executeQuery("select * from employee where EmployeeID='"+session.getValue("employeeID")+"'");
-            while(rs.next()){
-              if(rs.getInt("Level") != 0){
-                //System.out.println("Manager");
-                response.sendRedirect("index.htm");
-              }
+            //while(rs.next()){
+            if(!rs.next() || rs.getInt("Level") != 0 ){
+              response.sendRedirect("index.htm");
             }
+
+            //}
 
           }catch(Exception e){
             e.printStackTrace();

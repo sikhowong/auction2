@@ -54,7 +54,7 @@
 	<span style="font-size: 14pt; font-family: Arial"><strong>Hello,
 			Customer. Your Email is <%=session.getValue("login")%>. Your ID is <%=session.getValue("customerID")%>
 			.<br /></span>
-	<a href ="Buy_Item.jsp?by=Name"	>By Name </a><a href ="Buy_Item.jsp?by=Type">By Name </a><a href ="Buy_Item.jsp?by=Type">By Name </a>
+	<a href ="Buy_Item.jsp?by=Name"	>By Name  </a>| <a href ="Buy_Item.jsp?by=Type">By Type  </a>| <a href ="Buy_Item.jsp?by=ItemID">By Item ID </a>
 	<br /><br />
 	<%
 		if (request.getParameter("by").trim().equals("Name")) {
